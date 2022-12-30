@@ -42,3 +42,15 @@ resource "aws_vpc" "myvpc" {
 output "arn" {
   value = aws_vpc.myvpc.arn
 }
+variable "mytuples" {
+  type = tuple([string,number,string])
+  default = ["value1",22,"value2"]
+}
+
+variable "myobject" {
+  type = objects({name=string,port=list(number)})
+  default = {
+    name = "port"
+    port = [22,25,80]
+  }  
+}
